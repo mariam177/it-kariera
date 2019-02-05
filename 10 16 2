@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int number = int.Parse(Console.ReadLine());
+            string to16 = Convert.ToString(number, 16);
+            string i16 = to16.ToUpper();
+            Console.WriteLine(i16);
+            String to2 = Convert.ToString(number, 2);
+            Console.WriteLine(to2);
+
+
+
+          
+        }
+    }
+}
