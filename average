@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Console.WriteLine(Console.ReadLine().Split(' ').Select(int.Parse).ToArray().Min());
+            int[] numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            int panichka = 0;
+            int len = numbers.Length;
+            for (int i = 0; i < len; i++)
+            {
+                if (numbers[i] < panichka)
+                {
+                    panichka += numbers[i];
+                }
+            }
+            Console.WriteLine(panichka/len);
+        }
+    }
+}
