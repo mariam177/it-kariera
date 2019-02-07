@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+
+            int[] fr = new int[arr.Length];
+            int br = 1;
+            int maxBr = 1;
+            int chisloMaxFr = arr[0];
+            int panichka = arr[0];
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                
+                if (panichka == arr[i])
+
+                {
+                    br++;
+                    if (maxBr < br)
+                    {
+                        maxBr = br; chisloMaxFr = panichka;
+                    }
+
+
+                }
+
+              
+                
+
+
+            }
+                if (maxBr < br)
+            { maxBr = br; chisloMaxFr = panichka; }
+            
+
+            Console.WriteLine($"{maxBr} {chisloMaxFr}");
+        }
+    }
+}
