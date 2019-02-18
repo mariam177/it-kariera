@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp18
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int rows = int.Parse(Console.ReadLine());
+            int cols = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[rows, cols];
+            for (int i = 0; i < rows; i++)
+            {
+                int[] array = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+                for (int col = 0; col < cols; col++)
+                {
+                    matrix[rows, col] = array[col];
+                }
+            }
+
+            for (int i = 0; i < rows; i++)
+            {
+                
+                for (int col = 0; col < cols; col++)
+                {
+                    Console.Write("{0, 10}", matrix[rows, col] ); 
+                }
+                Console.WriteLine();
+            }
+
+            for (int col = 0; col < rows; col++)
+            {
+                int min = matrix[0, col];
+                for (int row = 0; row< cols; row++)
+                {
+                    if (matrix[row, col]< min)
+                    {
+                        min=matrix[row, col];
+                    }   
+                }
+                Console.Write("{0, 10} ", min);
+            }
+        }
+
+    }
+}
