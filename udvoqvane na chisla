@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp21
+{
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+            
+            int[] nums = Console.ReadLine().Split(' ').Select(x=>int.Parse(x)).ToArray();
+
+            nums = nums.Select(x => x * 2).Skip(2).Take(3).ToArray();
+              
+            Console.WriteLine(string.Join(", ", nums));
+
+        }
+    }
+}
