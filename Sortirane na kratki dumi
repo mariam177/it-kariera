@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp21
+{
+    class Program
+    {
+        static string Rev(string x)
+        {
+            char[] symbs = new char[x.Length];
+
+            for (int i = 0; i < x.Length; i++)
+            {
+                symbs[x.Length - 1 - i] = x[i];
+
+            }
+           return new String(symbs);
+           
+        }
+
+        static void Main(string[] args)
+        {
+            char[] separators = new char[]
+            {'.',',',':',';','(',')','[',']','\\','\"','\'','/','!','?',' '};
+            string sentence = Console.ReadLine().ToLower();
+            string[] words = sentence.Split(separators);
+            var result = words.Select(x => Rev(x));
+              
+            Console.WriteLine(string.Join(", ", result));
+
+        }
+    }
+}
