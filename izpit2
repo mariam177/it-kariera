@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace izpit_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int securityKey = int.Parse(Console.ReadLine());
+            string[] siteNames = new string[n];
+            decimal totalMoneyLoss = 0;
+            for (int i = 0; i < n; i++)
+            {
+                string[] input = Console.ReadLine().Split(' ').ToArray();
+                siteNames[i] = input[0];
+                int siteVisits = int.Parse(input[1]);
+                decimal siteCommercialPricePerVisit = decimal.Parse(input[2]);
+                 decimal siteLoss = siteVisits * siteCommercialPricePerVisit;
+                totalMoneyLoss += siteLoss;
+                
+            }
+            double securityToken = Math.Pow(securityKey, n);
+            Console.WriteLine(string.Join("\n", siteNames));
+
+            Console.WriteLine($"Total Loss: {totalMoneyLoss:F20}");
+            Console.WriteLine($"Security Token: {securityToken}");
+        }
+    }
+}
