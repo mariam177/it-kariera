@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace rainaCast
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string waitedkind = "Type";
+            List<string> answer = new List<string>();
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                if (input == "Davai Emo")
+                {
+                    break;
+                }
+
+                string[] inputLine = input.Split(':').ToArray();
+                string kind = inputLine[0];
+              
+                if (kind == waitedkind)
+                {
+                    string val = inputLine[1].TrimStart();
+
+
+
+                    switch (kind)
+                    {
+
+                        case "Type":
+                            if (waitedkind == "Type")
+                            {
+                                inputLine[1]= inputLine[1].Trim();
+                                if (inputLine[1] == "Normal" || inputLine[1] == "Warning" || inputLine[1] ==  "Danger")
+                                {
+                                    answer.Add(inputLine[1]);
+                                    waitedkind = "Source";
+
+                                }
+                            }
+                        
+                            break;
+
+                        case "Source":
+                            if (waitedkind == "Source")
+                            {
+                                answer.Add(inputLine[1]);
+                                waitedkind = "Forcast";
+                            }
+                            break;
+                        case "Forcast":
+                            if (waitedkind == "Forcast")
+                            {
+                                if (!inputLine[1].Contains('!')&&
+                                    !inputLine[1].Contains('.') &&
+                                    !inputLine[1].Contains(',') &&
+                                    !inputLine[1].Contains('?')
+                                    )
+                                {
+                                    answer.Add(inputLine[1] + "~");
+                                    waitedkind = "Type";
+                                }
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                    
+
+                }
+                for (int i = 0; i <answer.Count; i+=3 )
+                {
+                  Console.WriteLine($"({answer[i]}) {answer[i+2]} ~ {answer[i+1]}");
+                }
+                
+            }
+        }
+}   }
